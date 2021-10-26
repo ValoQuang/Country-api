@@ -1,18 +1,25 @@
-import { createStore,applyMiddleware,compose } from "redux";
-import thunk from "redux-thunk"
-import { rootReducer } from ".";
+import {createStore, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
 
-const initState:any = {};
+import rootReducer from './reducers';
 
-export default function makeStore(initialState=initState) {
-    const middlewares = [thunk]
-    let composeEnhancers = compose 
-    //redux devtool setup, copy from internet
+
+
+const initState:any={};
+
+export default function makeStore(initialState=initState){
+
+    const middlewares=[thunk]
+    let composeEnhancers=compose
+
+    // redux dev tool setup 
     if (process.env.NODE_ENV === 'development') {
         if ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
           composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
         }
       }
+
+
     const store =createStore(rootReducer, initialState,composeEnhancers(applyMiddleware(...middlewares)) )
 
     if ((module as any).hot) {
@@ -22,5 +29,7 @@ export default function makeStore(initialState=initState) {
         })
       }
 
-    return store;
+
+    return store
+
 }

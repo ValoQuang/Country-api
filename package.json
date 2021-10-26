@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
-    "@types/ityped": "^1.0.1"
+    "@types/ityped": "^1.0.1",
+    "@types/react-dom": "^17.0.10"
   }
 }
