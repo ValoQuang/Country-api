@@ -1,0 +1,16 @@
+@import "../../styles/base";
+
+.search-box{
+    display: flex;
+    background-color: rgb(204, 224, 224);
+    border-radius: 20px;
+    align-items: center;
+    height:30px;
+    width: 200px;
+    
+    &__wrapper{
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+}

@@ -9,7 +9,7 @@ const Logo = () => {
         showCursor: true,
         backDelay: 1500,
         backSpeed:60,
-        strings: ["Inspired by Phuc Vinh Le, I learnt this from him !!!"],
+        strings: [ 'I learnt this from Phuc Vinh Le'],
         });
     }, []);
     return (     

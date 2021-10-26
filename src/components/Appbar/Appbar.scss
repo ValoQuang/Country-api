@@ -3,10 +3,35 @@
 .appbar {
     background-color: rgb(223, 119, 119);
     margin: 50px;
+    padding: 20px;
     &__content{
         display:grid;
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        place-items: center;
         align-items: center;
+
     }
+    &__content-right{
+        display: flex;
+        place-items: center;
+    svg.MuiSvgIcon-root{
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    }
+    &__content-card{
+        display: flex;
+        place-items: center;
+    svg.MuiSvgIcon-root{
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    }
+}
+
+.counter{
+    border-radius: 20px;
+    background-color: rgb(105, 88, 88);
+    padding: 10px;
 }
 
