@@ -1,0 +1,12 @@
+@import "../../styles/base";
+
+.appbar {
+    background-color: rgb(223, 119, 119);
+    margin: 50px;
+    &__content{
+        display:grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        align-items: center;
+    }
+}
+

@@ -13,8 +13,8 @@ export const countriesReducer = (state = initState, {type, payload}:any) => {
     switch(type) {
         case ActionTypes.SET_COUNTRIES:
             return state;
-
-
+            case ActionTypes.SELECTED_COUNTRIES:
+            return state;
             break;
 
         default:

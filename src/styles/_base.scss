@@ -1,0 +1,30 @@
+@import "./reset";
+
+//fonts 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+//font-weight
+$font-weight: (
+    'regular':400,
+    'medium':500,
+    'bold':700
+);
+
+//gLOBAL
+$max-width : 1040px;
+:root {
+    font-size:15px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+.container {
+    max-width:$max-width; 
+    
+}
+
+//typography
+h2{
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
