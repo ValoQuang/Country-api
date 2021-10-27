@@ -1,6 +1,7 @@
 import { FETCH_COUNTRY_SUCCESS,FETCH_COUNTRY_LOADING, FETCH_COUNTRY_FAIL} from "../../types/CountryTypes"
 import { CountryActions } from "../../types/CountryTypes"
 import axios from "axios";
+import { Dispatch } from "redux";
 
 export  function fetchAllCountriesLoading():CountryActions{
     return {
@@ -25,7 +26,7 @@ export function fetchAllCountriesFail(error:string):CountryActions{
 const URL = 'https://restcountries.com/v2/all';
 
 export function fetchAllCountries() {
-    return (dispatch:any)=> {
+    return (dispatch:Dispatch)=> {
         //run when loading
         dispatch(fetchAllCountriesLoading());
         //now fetch

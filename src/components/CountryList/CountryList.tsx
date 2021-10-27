@@ -9,14 +9,14 @@ import { CircularProgress } from "@mui/material";
 //Country info and sort function here
 const CountryList =()=>{
 
-    const countries = useSelector((state:AppState)=> state.CountryReducer.countries)
-    const isLoading = useSelector((state:AppState)=> state.CountryReducer.isLoading)
+    const countries= useSelector((state:AppState)=>state.CountryReducer.countries)
+    const isLoading= useSelector((state:AppState)=>state.CountryReducer.isLoading)
     //get country from redux service
     const dispatch = useDispatch();
     useEffect(()=> {
         dispatch(fetchAllCountries());
     }
-    ,[dispatch])
+    ,[])
 
     return (
         <div className ="countrylist__container">
@@ -26,7 +26,7 @@ const CountryList =()=>{
                 {isLoading && <CircularProgress/>}
                 {!isLoading && countries && 
                         countries.map((country:any)=> (
-                        <CountryInfo {...country} key = {country.name}/>
+                        <CountryInfo {...country}/>
                     )
                 )}
                 

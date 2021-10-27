@@ -3,7 +3,7 @@ export const FETCH_COUNTRY_SUCCESS = 'FETCH_COUNTRY_SUCCESS'
 export const FETCH_COUNTRY_FAIL = 'FETCH_COUNTRY_FAIL'
 
 export type CountryReducerState={
-    countries:any,
+    countries:any[],
     isLoading:boolean,
     error:string
 }
