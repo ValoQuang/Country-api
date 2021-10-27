@@ -4,10 +4,11 @@
     background-color: rgb(223, 119, 119);
     margin: 50px;
     padding: 20px;
+    
     &__content{
         display:grid;
         grid-template-columns: 2fr 1fr 1fr 1fr;
-        place-items: center;
+        flex-direction:right;
         align-items: center;
 
     }

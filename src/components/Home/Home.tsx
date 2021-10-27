@@ -1,18 +1,27 @@
-import React,{useState} from "react";
+import React,{useState , useEffect} from "react";
 import CountryList from "../CountryList/CountryList";
 import Appbar from "../Appbar/Appbar";
 import Sidebar from "../Sidebar/Sidebar";
+import {fetchAllCountries} from "../../redux/actions";
+import {useDispatch} from "react-redux";
 
 import "./Home.scss";
-import { Button } from "@material-ui/core";
+
 
 const Home = ()=> {
     const[drawerState,setDrawerState]=useState(false)
     //handle drawerstate
-
     const handleDrawerState=(state:boolean)=>{
         setDrawerState(state);
     }
+
+    //dispatch action to fetch countries api
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(fetchAllCountries());
+    }
+    ,[dispatch]);
+
 
     return (
         <div className ="home">

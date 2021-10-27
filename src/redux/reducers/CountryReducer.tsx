@@ -1,4 +1,4 @@
-import {CountryReducerState, FETCH_COUNTRY_LOADING, FETCH_COUNTRY_SUCCESS, FETCH_COUNTRY_FAIL } from "../../types/CountryTypes";
+import {CountryReducerState, FETCH_COUNTRY_LOADING, FETCH_COUNTRY_SUCCESS, FETCH_COUNTRY_FAIL } from "../../types";
 
 const initState:CountryReducerState ={
     countries:[],

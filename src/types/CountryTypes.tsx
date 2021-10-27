@@ -3,19 +3,18 @@ export const FETCH_COUNTRY_SUCCESS = 'FETCH_COUNTRY_SUCCESS'
 export const FETCH_COUNTRY_FAIL = 'FETCH_COUNTRY_FAIL'
 
 export type CountryReducerState={
-    countries:[],
+    countries:any,
     isLoading:boolean,
     error:string
 }
 
 
-export type CountryState={
+
+export type CountryInfoProps={
+    flag:string
     name:string 
     region:string 
-    subregion:string
     population:number 
-    nativeName:string
-    flag:string
     capital:string
     languages:[{name:string}]
 
