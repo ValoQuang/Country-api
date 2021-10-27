@@ -5,5 +5,10 @@ export * from './CartTypes';
 
 export type AppState = {
     CountryReducer:CountryReducerState    
+    
+}
+export type CartState = {
+    
     cartReducer:CartReducerState
 }
+

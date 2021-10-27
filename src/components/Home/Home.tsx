@@ -11,13 +11,18 @@ const Home = ()=> {
     const handleDrawerState=(state:boolean)=>{
         setDrawerState(state);
     }
+    const [search, setSearch] = useState('')
+    //handlesearch
+    const handleSearch = (e:string):void =>{
+        setSearch(e)
+    }
 
     return (
         <div className ="home">
-            <Appbar onClick={handleDrawerState} drawerState={drawerState}/>
+            <Appbar onClick={handleDrawerState} drawerState={drawerState} handleSearch={handleSearch} />
             <Sidebar onClick={handleDrawerState} drawerState={drawerState} />
                 <div className ="home__content">
-                    <CountryList/>
+                    <CountryList search={search}/>
                 </div>
         </div>
     )

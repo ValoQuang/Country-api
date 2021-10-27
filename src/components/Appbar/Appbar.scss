@@ -31,8 +31,12 @@
 }
 
 .counter{
-    border-radius: 20px;
-    background-color: rgb(105, 88, 88);
-    padding: 10px;
+    border-radius: 30px;
+    background-color: rgb(192, 173, 173);
+    padding: 20px;
+    display:flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
 }
 

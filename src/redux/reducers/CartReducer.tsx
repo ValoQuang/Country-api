@@ -1,28 +1,39 @@
 import {ADD_CART, REMOVE_CART, CartActions, CartReducerState} from "../../types";
 
-//initstate 
-const initState:CartReducerState = {
-    
-    cart:[]
+
+//initialize cart
+const cartFromLocal= localStorage.getItem('cart')
+let initialCart:[]=[]
+if(cartFromLocal){
+    initialCart=JSON.parse(cartFromLocal)
+}
+const initState:CartReducerState={
+    cart:initialCart
 }
 
-export default function cartReducer (state=initState,action:CartActions):CartReducerState{
+export default function cartReducer (state:CartReducerState=initState, action:CartActions):CartReducerState{
     switch(action.type) {
         //adding country
         case ADD_CART: {
-            const country = action.payload 
-                return {
-                    ...state,
-                    cart:[...state.cart,country]
+            const country=action.payload  
+            //save cart country to localstorage
+            const cartCountry= [...state.cart, country]
+            localStorage.setItem('cart',JSON.stringify(cartCountry))           
+            return {
+                ...state, 
+                cart:[...state.cart, country]
                 }
         }
         case REMOVE_CART: {
-            const payloadCountry = action.payload
-            const tempCart = state.cart.filter((country)=>country !== payloadCountry)
-                return {
-                    ...state,
-                    cart:[...tempCart]
-                }
+            const paylodCountry=action.payload
+            const tempCart=state.cart.filter(country=>country!==paylodCountry)
+            //save cart country to localstorage
+            const cartCountry= [...tempCart]
+            localStorage.setItem('cart',JSON.stringify(cartCountry))  
+            return {
+                ...state, 
+                cart:[...tempCart]
+            }
         }   
         default: return state;
     }

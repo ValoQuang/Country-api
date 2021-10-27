@@ -2,10 +2,11 @@ export const ADD_CART = 'ADD_CART'
 export const REMOVE_CART = 'REMOVE_CART'
 
 export type CartCountry={
+    
 }
 
-export type CartReducerState = {
-    cart:CartCountry[],
+export type CartReducerState={
+    cart:CartCountry[]
 }
 
 export type AddCountryToCartAction={
