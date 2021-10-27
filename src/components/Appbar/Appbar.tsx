@@ -1,9 +1,11 @@
 import React from "react";
 import Logo from "../Logo";
 import Search from "../Search/Search";
+import {useSelector} from "react-redux";
+import { AppState } from "../../types";
 
 import "./Appbar.scss"
-import { Gradient } from "@material-ui/icons";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import MenuIcon from '@material-ui/icons/Menu';
 
 type AppbarProps={
@@ -14,6 +16,10 @@ type AppbarProps={
 const Appbar =(props:AppbarProps)=>{
 
     const {onClick, drawerState} = props;
+
+    //cartReducer
+    const cart = useSelector((state:AppState)=>state.cartReducer.cart)
+    
     const onDrawerClick =()=>{
         onClick(!drawerState)
     }
@@ -28,8 +34,8 @@ const Appbar =(props:AppbarProps)=>{
                 <Search/>
               </div>
               <div className ="appbar__content-right">
-                <Gradient/>
-                <p className= "counter">10</p>
+                <FavoriteIcon />
+                <p className= "counter">{cart && cart.length}</p>
               </div>
               <div className = "appbar__content-card">
                 <MenuIcon onClick={onDrawerClick}/>

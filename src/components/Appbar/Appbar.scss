@@ -1,10 +1,10 @@
 @import "../../styles/base";
 
 .appbar {
-    background-color: rgb(223, 119, 119);
+    background-image: linear-gradient(to bottom right, rgba(245, 117, 117, 0.87), yellow);
     margin: 50px;
     padding: 20px;
-    
+    border-radius:10px;
     &__content{
         display:grid;
         grid-template-columns: 2fr 1fr 1fr 1fr;

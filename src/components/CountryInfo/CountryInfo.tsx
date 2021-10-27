@@ -8,31 +8,33 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 
-const CountryInfo = ({flag, name, population, languages, region, capital}:CountryInfoProps) => {
+const CountryInfo = ({flag, name, population, languages, region, capital, onClick}:CountryInfoProps) => {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="dense table">
         <TableHead>
           <TableRow>
             <TableCell>Flag</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Capital</TableCell>
-            <TableCell align="right">Population</TableCell>
-            <TableCell align="right">Region</TableCell>
-            <TableCell align="right">Languages</TableCell>
+            <TableCell align="center">Name</TableCell>
+            <TableCell align="center">Capital</TableCell>
+            <TableCell align="center">Population</TableCell>
+            <TableCell align="center">Region</TableCell>
+            <TableCell align="center">Languages</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
             <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
               <TableCell component="th" scope="row">
-                <img src ={flag} alt ="flag"/>
+                <img src ={flag} alt ="flag" width = "200" height = "100"/>
               </TableCell>
-              <TableCell align="right">{name}</TableCell>
-              <TableCell align="right">{capital}</TableCell>
-              <TableCell align="right">{population}</TableCell>
-              <TableCell align="right">{region}</TableCell>
-              <TableCell align="right">{languages}</TableCell>
+              <TableCell align="center">{name}</TableCell>
+              <TableCell align="center">{capital}</TableCell>
+              <TableCell align="center">{population}</TableCell>
+              <TableCell align="center">{region}</TableCell> 
+              <TableCell align="center">{languages.map(lang => (<li key = {lang.name}>{lang.name}</li>))}</TableCell>   
+              <Button onClick = {()=> onClick()}>Like</Button>
             </TableRow>
         </TableBody>
       </Table>

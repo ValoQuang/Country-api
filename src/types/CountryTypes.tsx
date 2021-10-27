@@ -2,6 +2,8 @@ export const FETCH_COUNTRY_LOADING = 'FETCH_COUNTRY_LOADING'
 export const FETCH_COUNTRY_SUCCESS = 'FETCH_COUNTRY_SUCCESS'
 export const FETCH_COUNTRY_FAIL = 'FETCH_COUNTRY_FAIL'
 
+
+
 export type CountryReducerState={
     countries:any[],
     isLoading:boolean,
@@ -17,7 +19,8 @@ export type CountryInfoProps={
     population:number 
     capital:string
     languages:[{name:string}]
-
+    countries:[]
+    onClick: Function
 }
 
 export type fetchAllCountriesAction={
