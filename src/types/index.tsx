@@ -9,6 +9,6 @@ export type AppState = {
 }
 export type CartState = {
     
-    cartReducer:CartReducerState
+    CartReducer:CartReducerState
 }
 

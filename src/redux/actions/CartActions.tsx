@@ -8,7 +8,7 @@ export  function addCountryToCart(country:{}):CartActions{
     }
 }
 //remove cart
-export function removeCountryToCart(country:{}):CartActions{
+export function removeCountryFromCart(country:{}):CartActions{
     return {
         type: REMOVE_CART,
         payload: country

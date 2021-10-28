@@ -8,29 +8,25 @@ import { CircularProgress } from "@mui/material";
 import './CountryList.scss';
 
 
+
 type CountryListProps ={
-    search: string
+    search:string
 }
 //Country info and sort function here
 const CountryList =({search}:CountryListProps)=>{
 
     const countries = useSelector((state:AppState)=> state.CountryReducer.countries)
     const isLoading = useSelector((state:AppState)=> state.CountryReducer.isLoading)
-
+    const cart = useSelector((state:any)=> state.CountryReducer.cart)
     //Filter countries
     const [filteredCountries, setFilteredCountries] = useState(countries)
-    
-    useEffect(()=> {
-        setFilteredCountries(filteredCountries)
-    }, [countries])
 
     //filter countries with key and
     useEffect(()=> {
         const res = countries.filter((country:any) => country.name.toLowerCase().includes(search.toLowerCase()))
         setFilteredCountries(res)
+        console.log(res)
     },[search, countries])
-
-    
 
     //get country from redux service
     const dispatch = useDispatch();
@@ -46,7 +42,12 @@ const CountryList =({search}:CountryListProps)=>{
             <div className ="countrylist__content">
                 {isLoading && <CircularProgress/>}
                 {!isLoading && filteredCountries && filteredCountries.map((country:any)=> (
-                        <CountryInfo {...country} key = {country.name} onClick = {()=> dispatch(addCountryToCart(country))}/>
+                        <CountryInfo 
+                        {...country} 
+                        key={country.name} 
+                        onClick = {()=> dispatch(addCountryToCart(country))}
+                        disabled = {cart.includes(country)}
+                        />
                     )
                 )}
                 

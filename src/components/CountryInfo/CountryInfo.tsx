@@ -1,6 +1,7 @@
 import React from "react";
 import {CountryInfoProps} from "../../types/CountryTypes";
 
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,7 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
-const CountryInfo = ({flag, name, population, languages, region, capital, onClick}:CountryInfoProps) => {
+const CountryInfo = ({flag, name, population, languages, region, capital, onClick, disabled}:CountryInfoProps) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="dense table">
@@ -34,7 +35,7 @@ const CountryInfo = ({flag, name, population, languages, region, capital, onClic
               <TableCell align="center">{population}</TableCell>
               <TableCell align="center">{region}</TableCell> 
               <TableCell align="center">{languages.map(lang => (<li key = {lang.name}>{lang.name}</li>))}</TableCell>   
-              <Button onClick = {()=> onClick()}>Like</Button>
+              <Button disabled={disabled} onClick={()=> onClick()}>Like</Button>
             </TableRow>
         </TableBody>
       </Table>

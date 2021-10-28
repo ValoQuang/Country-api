@@ -21,6 +21,7 @@ export type CountryInfoProps={
     languages:[{name:string}]
     countries:[]
     onClick: Function
+    disabled:boolean
 }
 
 export type fetchAllCountriesAction={

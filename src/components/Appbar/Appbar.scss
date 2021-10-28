@@ -7,7 +7,7 @@
     border-radius:10px;
     &__content{
         display:grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
         flex-direction:right;
         align-items: center;
 
@@ -31,12 +31,11 @@
 }
 
 .counter{
-    border-radius: 30px;
-    background-color: rgb(192, 173, 173);
+    margin-left: 10px;
+    border-radius: 20px;
+    background-color: rgb(238, 209, 209);
     padding: 20px;
-    display:flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
+    align-items: center;
+    font-size: 1rem;
 }
 

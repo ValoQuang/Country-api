@@ -1,0 +1,26 @@
+@import '../../styles/base';
+
+.cartmenu {
+    margin-top: 50px;
+    &__container {
+        .MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded {
+            width: 300px;
+            position: absolute;
+            top: 60px!important;
+            padding: 10px;
+            padding-right: 50px;
+            margin-top: 50px;
+        };
+    }
+    &__menu-item{
+        display:flex;
+        align-items: center;
+        justify-content: space-around;
+        .cart-menu__delete-icon{
+            flex:1;
+            cursor: pointer;
+                font-size: 4rem;
+            
+        }
+    }
+}
