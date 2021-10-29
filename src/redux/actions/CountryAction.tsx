@@ -1,43 +1,54 @@
-import { FETCH_COUNTRY_SUCCESS,FETCH_COUNTRY_LOADING, FETCH_COUNTRY_FAIL} from "../../types/CountryTypes"
-import { CountryActions } from "../../types/CountryTypes"
-import axios from "axios";
-import { Dispatch } from "redux";
+import {Dispatch} from 'redux'
+import axios from 'axios'
 
-export  function fetchAllCountriesLoading():CountryActions{
+import {FETCH_COUNTRIES_SUCCESS, CountryActions, FETCH_COUNTRIES_FAILURE, FETCH_COUNTRIES_LOADING} from '../../types'
+
+//fetch all countries
+export function fetchAllCountriesLoading():CountryActions{
+
     return {
-        type: FETCH_COUNTRY_LOADING
+        type:FETCH_COUNTRIES_LOADING
     }
+
 }
 
+// fetch all countries success
 export function fetchAllCountriesSuccess(countries:[]):CountryActions{
     return {
-        type: FETCH_COUNTRY_SUCCESS, 
+        type:FETCH_COUNTRIES_SUCCESS,
         payload:countries
     }
+
 }
 
-export function fetchAllCountriesFail(error:string):CountryActions{
+// fetch all countries failure
+export function fetchAllCountriesFailure(error:string):CountryActions{
     return {
-        type: FETCH_COUNTRY_FAIL, 
+        type:FETCH_COUNTRIES_FAILURE,
         payload:error
+        
     }
 }
 
-const URL = 'https://restcountries.com/v2/all';
+// fetch countries data
 
-export function fetchAllCountries() {
-    return (dispatch:Dispatch)=> {
-        //run when loading
-        dispatch(fetchAllCountriesLoading());
-        //now fetch
-        axios.get(URL)
-        .then(res => {
-            const countries = res.data;
-            dispatch(fetchAllCountriesSuccess(countries));
-            console.log(countries)
+export function fetchAllCountries(){
+
+    return (dispatch:Dispatch)=>{
+
+       
+
+        dispatch(fetchAllCountriesLoading())
+        //axios call 
+        axios.get('https://restcountries.com/v2/all')
+        .then((res)=>{
+            const countries=res.data 
+            dispatch(fetchAllCountriesSuccess(countries))
+        }).catch((err)=>{
+            dispatch(fetchAllCountriesFailure(err))
+
         })
-        .catch(err => {
-            dispatch(fetchAllCountriesFail(err));
-        });
-    };
-};
+    }
+
+    
+}

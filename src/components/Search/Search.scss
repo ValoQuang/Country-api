@@ -1,18 +1,23 @@
-@import "../../styles/base";
+@import '../../styles/base';
 
 .search-box{
+background-color: $grey;
+border-radius: 20px;
+height:50px;
+display: flex;
+align-items: center;
+padding:1rem 2rem;
+margin-left: 20px;
+margin-right: 20px;
+&__wrapper{
     display: flex;
-    background-color: rgb(204, 224, 224);
-    border-radius: 20px;
     align-items: center;
-    height:30px;
-    width: 200px;
-    padding-right: 10px;
-    padding-left: 10px;
-    
-    &__wrapper{
-        margin-left: 10px;
-        display: flex;
-        align-items: center;
-    }
+    svg.MuiSvgIcon-root {
+        font-size: 4rem;
+        color:$black;
+    }    
+
+}
+
+
 }

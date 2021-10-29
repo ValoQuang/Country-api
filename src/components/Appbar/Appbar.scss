@@ -1,41 +1,45 @@
-@import "../../styles/base";
+@import '../../styles/base';
 
-.appbar {
-    background-image: linear-gradient(to bottom right, rgba(245, 117, 117, 0.87), yellow);
-    margin: 50px;
-    padding: 20px;
-    border-radius:10px;
-    &__content{
-        display:grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-        flex-direction:right;
-        align-items: center;
+.appbar{   
+    border:solid;
+    margin-top: 50px;
+    height: 100px;
+    padding:2rem;
+   &__content{
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+   
+   &__content-right{
+       display: flex;
+       align-items: center;
+       //increse the font-size of icons
+       svg.MuiSvgIcon-root {
+        font-size: 5rem;
+        color:$black;
+    }
+   }
+   &__content-cart{
+       display: flex;
+       align-items: center;
+       margin-right:5rem;
+   }
+   &__content-cart-counter{
+      width: 36px;
+      height: 36px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      background-color: $blackLight;
+      color:$white; 
+      border-radius: 50%;  
+      margin-left:2rem; 
+      max-height:auto;
 
-    }
-    &__content-right{
-        display: flex;
-        place-items: center;
-    svg.MuiSvgIcon-root{
-        font-size: 2rem;
-        cursor: pointer;
-    }
-    }
-    &__content-card{
-        display: flex;
-        place-items: center;
-    svg.MuiSvgIcon-root{
-        font-size: 2rem;
-        cursor: pointer;
-    }
-    }
+   }
+   .active{
+       background-color: $primary;
+   }
 }
-
-.counter{
-    margin-left: 10px;
-    border-radius: 20px;
-    background-color: rgb(238, 209, 209);
-    padding: 20px;
-    align-items: center;
-    font-size: 1rem;
-}
-

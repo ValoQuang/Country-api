@@ -1,59 +1,69 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { removeCountryFromCart } from "../../redux/actions";
+import React from 'react'
+import Menu from '@material-ui/core/Menu';
+import Fade from '@material-ui/core/Fade';
+import DeleteIcon from '@material-ui/icons/Delete';
+import {useDispatch} from 'react-redux'
 
-import "./CartMenu.scss";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Fade from '@mui/material/Fade';
-import DeleteIcon from '@mui/icons-material/Delete';
+import {removeCountryFromCart} from '../../redux/actions'
 
 
-type CartMenuProps = {
+import './cartmenu.scss'
+
+type CartMenuProps={
     cart:{}[]
+    onClick:Function
     menuOpen:boolean
     anchorEl:null | HTMLElement
-    onClick:Function
+
 }
 
-const CartMenu =({cart, onClick,menuOpen,anchorEl}:CartMenuProps)=> {
-    const dispatch = useDispatch()
-    //copy from menu in MaterialUI page
+const CartMenu=({cart, onClick, menuOpen, anchorEl}:CartMenuProps)=> {
+
+
+    const dispatch=useDispatch()
+  
     const handleClose = () => {
-         onClick()
+      onClick()
     };
-    //copy from menu in MaterialUI page
+  
+
     return (
-        <div className="cartmenu">
-             <Menu  className = "cartmenu__container"
-                    id="fade-menu"
-                    MenuListProps={{
-                    'aria-labelledby': 'fade-button',
-                    }}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    TransitionComponent={Fade}
-                    open ={menuOpen}
-                >
-                  <p >Cart items</p>
-                  <MenuItem onClick={handleClose}>
+        <div className="cart-menu">            
+      <Menu
+        className="cart-menu__menu"
+        id="fade-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={menuOpen}
+        onClose={handleClose}
+        TransitionComponent={Fade}
+      >
+          <h2 >Favourite</h2>
+
+          {/* items */}
+          <div className="cart-menu__menu-items">
+
+                  {/* each item/country */}
                   {cart.length===0 && 
-                    <div className="cartmenu__empty">
-                        <p>No items in the cart </p>
+                    <div className="cart-menu__empty">
+                        <h2>No favourite country</h2>
                     </div>
                   }
 
                   {cart && cart.map((country:any)=>(
-                      <div className="cartmenu__menu-item">
-                      <img src={country.flag} alt={country.name} width ="100" height ="70" />
-                      <p>{country.name}</p>
-                      <DeleteIcon className="cartmenu__delete-icon" onClick={()=>dispatch(removeCountryFromCart(country))}/>
+                      <div className="cart-menu__menu-item">
+                      <img src={country.flag} alt={country.name} />
+                      <h2>{country.name}</h2>
+                      <DeleteIcon className="cart-menu__delete-icon" onClick={()=>dispatch(removeCountryFromCart(country))}/>
                     </div>
 
                   ))}
-                  </MenuItem>   
-                </Menu>
 
+                  
+
+          </div>
+       
+      </Menu>
         </div>
     )
 }
@@ -61,6 +71,5 @@ const CartMenu =({cart, onClick,menuOpen,anchorEl}:CartMenuProps)=> {
 export default CartMenu
 
 
-    
-  
-    
+
+

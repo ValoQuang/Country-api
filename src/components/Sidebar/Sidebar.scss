@@ -1,26 +1,56 @@
-@import "../../styles/base";
+@import '../../styles/base';
 
-.sidebar {
-   background-color: rgb(27, 34, 46);
-   &__drawer {
-      align-items: center;
-      place-content: center;
-      padding: 50px;
-      margin-top: 50px;
-      svg.MuiSvgIcon-root{
-         font-size: 4rem;
-         align-items: center;
-         cursor: pointer;
-      }
-   }
-   &__content {
-      margin-top: 40px;
-   }
+.sidebar{
+&__drawer{
+    min-width: 600px;
+    .MuiDrawer-paperAnchorRight {
+        left: auto;
+        right: 0;
+        width: 250px;
+    }
+}
+&__drawer-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top:2rem;
+    padding-right:2rem;
+    svg.MuiSvgIcon-root {
+        font-size: 2rem;
+        color:$black;
+        cursor: pointer;
+    }
+
+}
+&__navigation{
+    margin-top:1rem;
+    padding-right:1rem;
+    text-align: right;
+    ul{
+        margin-top:4rem;
+        li{
+            margin-bottom:3rem;
+            display: flex;
+            align-items: center;   
+            justify-content: flex-end;         
+        }
+
+    .black{
+    background-color: #121212;
+    }
+    .green{
+    background-color: #23F0DC;
+    }
+    .red{
+    background-color: #F1622F;
+    }
+    }
+}
+&__color-box{
+    width:80px;
+    height:50px;
+    margin-left:2rem;
+    
 }
 
-
-.theme__button {
-   padding: 40px;
-   border-radius: 10px;
-   background-color:rgb(48, 47, 45);
 }
