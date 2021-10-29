@@ -34,7 +34,7 @@ const CountryInfo = ({flag, name, population, languages, region, capital, onClic
               <TableCell align="center">{capital}</TableCell>
               <TableCell align="center">{population}</TableCell>
               <TableCell align="center">{region}</TableCell> 
-              <TableCell align="center">{languages.map(lang => (<li key = {lang.name}>{lang.name}</li>))}</TableCell>   
+              <TableCell align="center">{languages.map((lang:any) => (<li key = {lang.name}>{lang.name}</li>))}</TableCell>   
               <Button disabled={disabled} onClick={()=> onClick()}>Like</Button>
             </TableRow>
         </TableBody>
