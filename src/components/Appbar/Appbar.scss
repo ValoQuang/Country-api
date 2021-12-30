@@ -1,16 +1,22 @@
 @import '../../styles/base';
 
 .appbar{   
-    border:solid;
-    margin-top: 50px;
-    height: 100px;
-    padding:2rem;
+    height:80px;
+    padding-top:10px;
+    padding-right:2rem;
+    padding-left:2rem;
    &__content{
        display: flex;
        justify-content: space-between;
        align-items: center;
    }
-   
+   &__content-left{
+       img{
+           max-width: 150px;
+           height: auto;
+           width: auto;
+       }
+   }
    &__content-right{
        display: flex;
        align-items: center;
@@ -35,8 +41,7 @@
       background-color: $blackLight;
       color:$white; 
       border-radius: 50%;  
-      margin-left:2rem; 
-      max-height:auto;
+      margin-left:2.5rem; 
 
    }
    .active{

@@ -38,7 +38,7 @@ const CartMenu=({cart, onClick, menuOpen, anchorEl}:CartMenuProps)=> {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-          <h2 >Favourite</h2>
+          <h2 >Cart items</h2>
 
           {/* items */}
           <div className="cart-menu__menu-items">
@@ -46,7 +46,7 @@ const CartMenu=({cart, onClick, menuOpen, anchorEl}:CartMenuProps)=> {
                   {/* each item/country */}
                   {cart.length===0 && 
                     <div className="cart-menu__empty">
-                        <h2>No favourite country</h2>
+                        <h2>No items in the cart</h2>
                     </div>
                   }
 

@@ -2,8 +2,15 @@
 
 .country-list{
    
-    margin:1rem auto 0 auto;
+    margin:5rem auto 0 auto;
     max-width: $max-width;
+
+    &__cards{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+    }
     &__sort{
         display: flex;
         align-items: center;

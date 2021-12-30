@@ -8,9 +8,15 @@
 
     &__wrapper{
         padding:5rem;
+        img{
+            width: 250px;
+            height: 150px;
+        }
+      
+
     }
      &__name{
-         margin-top:4rem;
+         margin-top:5rem;
         color:$black;
      }
      &__region{

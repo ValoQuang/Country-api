@@ -8,6 +8,7 @@ export type CartCountry={
 export type CartReducerState={
     cart:CartCountry[]
 }
+
 //action types
 export type AddCountryToCartAction={
     type: typeof ADD_COUNTRY_TO_CART
@@ -17,5 +18,6 @@ export type RemoveCountryFromCartAction={
     type: typeof REMOVE_COUNTRY_FROM_CART
     payload: CartCountry
 }
+
 
 export type CartActions= AddCountryToCartAction | RemoveCountryFromCartAction 

@@ -9,14 +9,19 @@ const initState:UiReducerState={
 //cart reducer function 
 
 export default function uiReducer(state:UiReducerState=initState, action:UiActions):UiReducerState{
+
     switch(action.type){
+
         //adding country to cart
-        case UPDATE_SEARCH_KEYWORD:{  
+
+        case UPDATE_SEARCH_KEYWORD:{
+             
             return {
                 ...state, 
                 searchKeyWord:action.payload
             }
-        }        
+        }
+        
         default:
             return state
     }

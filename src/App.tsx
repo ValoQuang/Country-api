@@ -1,27 +1,65 @@
-import React, {useState} from 'react';
+import React from 'react';
+
+import {createTheme} from '@material-ui/core'
+import {ThemeProvider} from '@material-ui/styles'
+
+import Routes from './Routes'
 import Appbar from './components/Appbar/Appbar'
 import Sidebar from './components/Sidebar/Sidebar'
-import Header from './components/Header/Header'
-import Home from './pages/Home/Home'
+
 //base style
 import './styles/_base.scss'
 
+
+
+//create material UI theme 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#f2aa26',
+      dark: '#f09c01',
+    },
+    secondary: {
+      main: '#11cb5f',
+    },
+    text: {
+      primary: '#373585',
+      secondary: '#a4a6b3',
+    },
+    background: {
+      default: '#f7f8fc',
+    },
+  },
+  typography: {
+    fontFamily: 'Poppins, sans- serif',
+    fontWeightBold: 700,
+    fontWeightMedium: 600,
+    fontWeightRegular: 400,
+    htmlFontSize: 8,
+  },
+})
+
 function App() {
-  const [drawerState, setDrawerState] = useState(false) 
+
+  const [drawerState, setDrawerState] = React.useState(false)
+
+  
   //handle drawer state
     const handleDrawerState=(state:boolean)=>{
         setDrawerState(state)
     }
- 
-  return (  
+
+  return (
+    <ThemeProvider theme={theme}>
     <div className="App">
        {/* appbar component  */}
-       <Header/>
        <Appbar onClick={handleDrawerState} drawerState={drawerState}/>
-      {/* Sidebar  */} 
-      <Home/>            
-      <Sidebar onClick={handleDrawerState} drawerState={drawerState}/>   
+
+      {/* Sidebar  */}             
+      <Sidebar onClick={handleDrawerState} drawerState={drawerState}/>
+      <Routes />
     </div>
+    </ThemeProvider>
   );
 }
 
