@@ -54,6 +54,8 @@
   },
   "devDependencies": {
     "@types/ityped": "^1.0.1",
-    "@types/react-dom": "^17.0.10"
+    "@types/lodash": "^4.14.178",
+    "@types/react-dom": "^17.0.10",
+    "@types/react-router-dom": "^5.3.2"
   }
 }

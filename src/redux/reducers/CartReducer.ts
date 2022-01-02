@@ -1,7 +1,7 @@
-import {ADD_CART, REMOVE_CART, CartActions, CartReducerState} from "../../types";
 
+import {ADD_COUNTRY_TO_CART, REMOVE_COUNTRY_FROM_CART, CartActions, CartReducerState} from '../../types'
+//initial state
 
-//initialize cart
 const cartFromLocal= localStorage.getItem('cart')
 let initialCart:[]=[]
 if(cartFromLocal){
@@ -11,10 +11,15 @@ const initState:CartReducerState={
     cart:initialCart
 }
 
-export default function cartReducer (state:CartReducerState=initState, action:CartActions):CartReducerState{
-    switch(action.type) {
-        //adding country
-        case ADD_CART: {
+//cart reducer function 
+
+export default function cartReducer(state:CartReducerState=initState, action:CartActions):CartReducerState{
+
+    switch(action.type){
+
+        //adding country to cart
+
+        case ADD_COUNTRY_TO_CART:{
             const country=action.payload  
             //save cart country to localstorage
             const cartCountry= [...state.cart, country]
@@ -22,9 +27,9 @@ export default function cartReducer (state:CartReducerState=initState, action:Ca
             return {
                 ...state, 
                 cart:[...state.cart, country]
-                }
+            }
         }
-        case REMOVE_CART: {
+        case REMOVE_COUNTRY_FROM_CART:{
             const paylodCountry=action.payload
             const tempCart=state.cart.filter(country=>country!==paylodCountry)
             //save cart country to localstorage
@@ -34,7 +39,10 @@ export default function cartReducer (state:CartReducerState=initState, action:Ca
                 ...state, 
                 cart:[...tempCart]
             }
-        }   
-        default: return state;
+
+        }
+        default:
+            return state
     }
+
 }

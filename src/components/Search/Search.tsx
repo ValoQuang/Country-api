@@ -1,31 +1,34 @@
-import React from "react";
+import React from 'react'
+import {useDispatch} from 'react-redux'
+import Input from '@material-ui/core/Input';
+import SearchIcon from '@material-ui/icons/Search';
 
-import "./Search.scss";
-import { Input } from "@material-ui/core";
-import SearchIcon from '@mui/icons-material/Search';
+import {setSearchKeyword} from '../../redux/actions'
 
-type SearchType = {
-    handleSearch: Function
-}
+import './search.scss'
 
-const Search =({handleSearch}:SearchType) => {
-    
-    const handleInput = (e:any) => {
-        handleSearch(e.target.value);
+
+
+const Search=()=> {
+
+    const dispatch=useDispatch()
+
+    //handle input change
+    const handleInputChange=(e:any)=>{           
+        dispatch(setSearchKeyword(e.target.value))
+       
     }
 
-    return(
-        <div className ="search-box">
+    return (
+        <div className="search-box">
             <div className="search-box__wrapper">
-            <Input 
-                placeholder="Search.." 
-                disableUnderline={true} 
-                onChange ={handleInput}
-            />
+             <Input onChange={handleInputChange} placeholder="Search" disableUnderline={true}  />
             <SearchIcon/>
-            </div>
-        </div>
-    );
-};
 
-export default Search;
+            </div>
+            
+        </div>
+    )
+}
+
+export default Search
