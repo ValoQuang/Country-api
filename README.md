@@ -1,5 +1,7 @@
 
-## [Demo link ](https://bw-country-api.netlify.app/)
+## [Demo link ](https://pure-eyrie-75975.herokuapp.com/)
+
+Simple website where users can search filter country name and display i
 
 ### Tasks 
 
@@ -28,7 +30,7 @@
 - Theme color change - DONE
 
 
-## Techn stacks
+## Tech stacks
 + React Typescript
 + SASS
 + Material UI
